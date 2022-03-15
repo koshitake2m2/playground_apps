@@ -117,7 +117,6 @@ export default Vue.extend({
     },
   },
   methods: {
-    // 削除モーダル用メソッド群 begin
     showDeleteModal(todo: Todo): void {
       this.deletingTodoId = todo.id;
       this.isVisibleDeleteModal = true;
@@ -153,7 +152,6 @@ export default Vue.extend({
         this.todos.splice(index, 1);
       }
     },
-    // 削除モーダル用メソッド群 end
 
     findTodos(): void {
       this.isLoading = true;
