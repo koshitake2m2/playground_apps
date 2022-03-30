@@ -17,7 +17,7 @@ import scala.concurrent.ExecutionContext.global
 
 object WebServer extends IOApp {
 
-  lazy val port = 8011
+  lazy val port = 8080
   lazy val host = "localhost"
   implicit def unsafeLogger[F[_]: Sync]: Logger[F] = Slf4jLogger.getLogger[F]
 

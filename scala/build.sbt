@@ -12,7 +12,7 @@ lazy val root = project
   .aggregate(v1, v2)
 
 lazy val catsVersion = "2.7.0"
-lazy val catsEffectVersion = "3.3.5"
+lazy val catsEffectVersion = "3.3.8"
 lazy val log4catsVersion = "2.2.0"
 lazy val cats = Seq(
   "org.typelevel" %% "cats-core" % catsVersion,
@@ -27,11 +27,11 @@ lazy val log4cats = Seq(
 )
 
 lazy val scalatest = Seq(
-  "org.scalatest" %% "scalatest" % "3.2.9" % Test
+  "org.scalatest" %% "scalatest" % "3.2.11" % Test
 )
 
 lazy val mysql = Seq(
-  "mysql" % "mysql-connector-java" % "8.0.25"
+  "mysql" % "mysql-connector-java" % "8.0.28"
 )
 
 lazy val doobieVersion = "1.0.0-RC2"
@@ -42,7 +42,7 @@ lazy val doobie = Seq(
   "org.tpolecat" %% "doobie-scalatest" % doobieVersion % Test
 )
 
-lazy val http4sVersion = "0.23.10"
+lazy val http4sVersion = "0.23.11"
 lazy val http4s = Seq(
   "org.http4s" %% "http4s-dsl" % http4sVersion,
   "org.http4s" %% "http4s-blaze-client" % http4sVersion,
@@ -74,6 +74,7 @@ val commonScalacOptions = Seq(
 lazy val v1 = project
   .in(file("v1"))
   .settings(
+    assembly / mainClass := Some("com.example.api.v1.presentation.WebServer"),
     scalacOptions ++= commonScalacOptions,
     libraryDependencies := cats ++ scalatest ++ mysql ++ doobie ++ http4s ++ circe
   )
@@ -81,5 +82,6 @@ lazy val v1 = project
 lazy val v2 = project
   .in(file("v2"))
   .settings(
+    assembly / mainClass := Some("com.example.api.v2.Main"),
     scalacOptions ++= commonScalacOptions
   )
