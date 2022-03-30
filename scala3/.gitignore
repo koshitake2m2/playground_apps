@@ -1,0 +1,16 @@
+target
+.bsp
+
+*~
+.#*
+.*.swp
+
+.idea
+.idea/*
+.idea_modules
+*.iml
+
+.DS_Store
+
+.vscode
+
