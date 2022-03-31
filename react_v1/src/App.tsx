@@ -1,24 +1,25 @@
 import { VFC } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from 'react-router';
+
+import { Layout } from 'antd';
+import { Content, Footer, Header } from 'antd/lib/layout/layout';
+import TodoIndex from 'components/pages/TodoIndex';
+import TodoAdd from 'components/pages/TodoAdd';
+import TodoEdit from 'components/pages/TodoEdit';
 
 const App: VFC = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <Layout>
+    <Header />
+    <Content style={{ padding: '0 60px', height: '90vh' }}>
+      <Routes>
+        <Route path="/" element={<TodoIndex />} />
+        <Route path="/todos/add" element={<TodoAdd />} />
+        <Route path="/todos/:rawTodoId/edit" element={<TodoEdit />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Content>
+    <Footer />
+  </Layout>
 );
 
 export default App;

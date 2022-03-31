@@ -2,7 +2,6 @@ import { TodoStatus } from "@/domain/todo";
 import Vue from "vue";
 
 export class TodoBaseFormState {
-  // 検索文字列
   selectedTodoStatus: TodoStatus | undefined;
 
   constructor() {

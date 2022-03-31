@@ -5,4 +5,5 @@ public/
 **/*.min.js
 .eslintrc.js
 *.config.js
+server/
 src/setupProxy.js
